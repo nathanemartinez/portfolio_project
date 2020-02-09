@@ -1,0 +1,29 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Email Sent</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Tells them email sent-->
+            <h1>Email sent</h1>
+
+            <h3>Site: {{ site }}</h3>
+            <h3>Email: {{ email }}</h3>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Your Checker</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Event details-->
+            <h1>Checker: {{ checker }}</h1>
+            <h6>Date created: {{ checker.date_created }}</h6>
+            <p>Checker description: {{ checker.description }}</p>
+            <br>
+
+            <!--Delete, update event-->
+            <div>
+                <a class="btn btn-outline-danger" href="{% url 'site_down:checker-delete' checker.pk %}">Delete Checker</a>
+                <a class="btn btn-outline-success" href="{% url 'site_down:checker-update' checker.pk %}">Update Checker</a>
+            </div>
+
+            <br>
+
+            <!--Events-->
+            <h5>Back to checker list</h5>
+            <a class="btn btn-primary" href="{% url 'site_down:checker-list' %}">All Checkers</a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

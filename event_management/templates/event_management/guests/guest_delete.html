@@ -1,0 +1,32 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Delete Guest</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+            <h1>Delete guest</h1>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                <h2>Are you sure you want to delete: "{{ guest }}" from guests?</h2>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-outline-danger" type="submit">Delete</button>
+                    <a class="btn btn-outline-secondary" href="{% url 'event_management:guests' user.username guest.event.pk %}">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

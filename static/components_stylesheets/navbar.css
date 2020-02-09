@@ -1,0 +1,26 @@
+/*
+---------------------------------
+NAVBAR
+---------------------------------
+*/
+/* The entire navbar */
+.navbar {
+    /* Basically makes it bigger */
+    padding: 1.2em;
+}
+
+/* The 'Nathan Martinez' link */
+.navbar-brand {
+    font-size: 1.5em;
+    /* Adds space to the left of the 'Nathan Martinez' */
+    padding-left: 1em;
+}
+
+/* The navbar items */
+.nav-item {
+    font-size: 1.2em;
+    /* Increases the spaces between the navbar items */
+    padding-left: 1.2em;
+    padding-right: 2em;
+}
+

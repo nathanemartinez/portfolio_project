@@ -1,0 +1,54 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Your Guests</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Are there any guests?-->
+            {% if not guests %}
+                <h1>You have not created any guests</h1>
+                <a class="btn btn-primary" href="{% url 'event_management:guest-create' user.username event_pk %}">Create a guest</a>
+
+            {% else %}
+                <!--List all guests-->
+                {% for guest in guests %}
+                    <p><a href="{% url 'event_management:guest-detail' user.username guest.event.id guest.id %}">{{ guest }}</a></p>
+                {% endfor %}
+
+                <!--Create a guest-->
+                <div>
+                    <a class="btn btn-outline-primary" href="{% url 'event_management:guest-create' user.username event_pk %}">Create a guest</a>
+                </div>
+
+
+                <!--Back to the event-->
+                <br>
+                <div>
+                    <a class="btn btn-outline-primary" href="{% url 'event_management:event_management-detail' user.username event_pk %}">Your event</a>
+                </div>
+
+                <!--Sends an email to guests-->
+                <br>
+                <div>
+                    <a class="btn btn-primary" href="{% url 'event_management:guest-email' user.username event_pk %}">Send Email</a>
+                </div>
+
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

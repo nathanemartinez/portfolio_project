@@ -1,0 +1,39 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS CRISPY FORM TAGS-->
+{% load crispy_forms_tags %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Update Checker</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Label-->
+            <h1>Update the checker</h1>
+            <hr class="red-line">
+
+            <!--Form-->
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <!--Submit-->
+                <div class="form-group">
+                    <button class="btn btn-info" type="submit">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

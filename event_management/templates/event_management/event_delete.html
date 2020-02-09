@@ -1,0 +1,38 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Delete Event</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Label-->
+            <h1>Delete the event</h1>
+            <hr class="red-line">
+
+            <!--Form-->
+            <form method="POST">
+                {% csrf_token %}
+                <h3>Confirm "{{ object.name }}" deletion</h3>
+                <br>
+
+                <!--Delete, cancel buttons-->
+                <div class="form-group">
+                    <button class="btn btn-outline-danger" type="submit">Delete</button>
+                    <a class="btn btn-outline-secondary" href="{% url 'event_management:event_management-detail' user.username object.id %}">Cancel</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM STYLESHEET-->
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'basic_pages_stylesheets/home.css' %}">
+
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+
+<!--CAROUSEL-->
+<!--Removed for now 'components/carousel.html'-->
+
+
+<!--CAPSTONE PROJECTS-->
+{% include 'components/capstone_projects.html' %}
+
+
+<!--SKILLS-->
+{% include 'components/skills.html' %}
+
+
+<!--SOCIALS-->
+{% include 'components/socials.html' %}
+
+
+{% endblock %}

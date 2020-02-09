@@ -1,0 +1,40 @@
+<!--LINKING THE STYLESHEET-->
+{% load static %}
+<link rel="stylesheet" href="{% static 'components_stylesheets/skills.css' %}">
+
+<!--"MY SKILLS"-->
+<div class="container-fluid padding">
+	<div class="row text-center welcome">
+		<div class="col-12">
+			<h1 class="display-4">My Skills</h1>
+		</div>
+		<div class="col-12">
+			<p class="lead">What I've learned.</p>
+		</div>
+	</div>
+	<hr class="red-line">
+</div>
+
+
+<!--MY SKILLS LIST-->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<i class="fas fa-graduation-cap fa-6x"></i>
+			<h3><strong>Machine Learning</strong></h3>
+			<p>I can develop machine learning models that can predict values.
+				I used the Census Dataset to predict how much money someone made a year.
+			</p>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<i class="fab fa-python fa-6x"></i>
+			<h3><strong>Web Application Development</strong></h3>
+			<p>I have designed, tested, and deployed web applications that have full CRUD (create, read, update, delete) functionality.</p>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<i class="fas fa-language fa-6x"></i>
+			<h3><strong>Natural Language Processing</strong></h3>
+			<p>I've used NLP in several of my projects to remove 'stopwords' and 'lemmatize' text.</p>
+		</div>
+	</div>
+</div>

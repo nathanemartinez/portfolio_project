@@ -1,0 +1,45 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Your Checkers</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Are there any checkers?-->
+            {% if not checkers %}
+                <h1>You have not created any checkers.</h1>
+                <br>
+            {% endif %}
+
+            <!--Text-->
+            {% if checkers %}
+                <h1>These are all of your checkers</h1>
+                <br>
+            {% endif %}
+
+            <!--Create an checker-->
+            <a class="btn btn-primary" href="{% url 'site_down:checker-create' %}">Create a checker</a>
+            <br>
+            <br>
+
+            <!--Checker list-->
+            {% for checker in checkers %}
+                <h5><a href="{% url 'site_down:checker-detail' checker.pk %}">{{ checker.name }}</a></h5>
+                <br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

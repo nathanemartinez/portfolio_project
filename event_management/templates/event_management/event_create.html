@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Create Event</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Label-->
+            <h1>Create the event</h1>
+            <hr class="red-line">
+
+            <!--The form-->
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.name|as_crispy_field }}
+                <p>Format as: 01/01/2000</p>
+                {{ form.date|as_crispy_field }}
+                {{ form.description|as_crispy_field }}
+
+                <!--Submit-->
+                <div class="form-group">
+                    <button class="btn btn-info" type="submit">Create</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,78 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM STYLESHEET-->
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'basic_pages_stylesheets/projects.css' %}">
+{% endblock %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+  <title>My Projects</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+
+<!--Capstone projects-->
+{% include 'components/capstone_projects.html' %}
+
+
+<!--AUTOMATION PROJECTS-->
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col 12">
+            <h1 class="display-4">Web Apps In Progress</h1>
+        </div>
+    </div>
+    <hr class="red-line">
+</div>
+
+
+<!--AUTOMATION PROJECT CARDS-->
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <!--top = image at the top, middle = image in middle, bottom... etc-->
+                <img class="card-img-top" src="{% static 'images/code_pictures/code.png' %}" width="300" height="210" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Is my site down?</strong></h4>
+                    <p class="card-text">The web app periodically checks if the user's site is down. Emails them if it is.</p>
+                    <a href="#" class="btn btn-primary">In Progress</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <!--top = image at the top, middle = image in middle, bottom... etc-->
+                <img class="card-img-top" src="{% static 'images/code_pictures/code.png' %}" width="300" height="210" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Predict the output</strong></h4>
+                    <p class="card-text">Uses machine learning to predict the next value given a CSV file.</p>
+                    <a href="#" class="btn btn-primary">In Progress</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <!--top = image at the top, middle = image in middle, bottom... etc-->
+                <img class="card-img-top" src="{% static 'images/code_pictures/code.png' %}" width="300" height="210" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Clean this CSV file</strong></h4>
+                    <p class="card-text">Uses the Pandas library to clean a CSV file. (Removes outliers, scales, etc the data)</p>
+                    <a href="#" class="btn btn-primary">In Progress</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

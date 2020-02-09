@@ -1,0 +1,43 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Your Event</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+            <h1>Guest: {{ guest }}</h1>
+            <h3>Date created: {{ guest.date_created }}</h3>
+
+            <br>
+            <h5>Email: {{ guest.email }}</h5>
+            <h5>Attending?: {{ guest.will_attend }}</h5>
+
+            <br>
+            <p>Guest notes: {{ guest.notes }}</p>
+
+            <div>
+                <a class="btn btn-outline-danger" href="{% url 'event_management:guest-delete' user.username guest.event.pk guest.pk %}">Delete</a>
+                <a class="btn btn-outline-primary" href="{% url 'event_management:guest-update' user.username guest.event.pk guest.pk %}">Update</a>
+            </div>
+
+            <br>
+            <div>
+                <a class="btn btn-primary" href="{% url 'event_management:guests' user.username guest.event.pk %}">All Guests</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

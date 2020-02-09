@@ -1,0 +1,89 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM STYLESHEET-->
+{% block stylesheet %}
+  <link rel="stylesheet" href="{% static 'basic_pages_stylesheets/about.css' %}">
+{% endblock %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+  <title>About Me</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+<!--PERSONAL SKILLS-->
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+			<h1 class="display-4">Personal Skills</h1>
+            <h5>Skills that I have picked up while making nathanemartinez.com</h5>
+        </div>
+    </div>
+	<hr class="red-line">
+</div>
+
+
+<!--MY PERSONAL SKILL LIST-->
+<div class="container-fluid padding">
+	<div class="row text-center padding">
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<i class="fas fa-satellite-dish fa-6x"></i>
+			<h3>Communication</h3>
+			<p>I can explain my projects in a concise manner and communicate the main points of a project efficiently.</p>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+			<i class="fas fa-calendar-check fa-6x"></i>
+			<h3>Problem Solving</h3>
+			<p>Building nathanemartinez.com has taught me how to solve problems on my own
+            by using online resources, such as: Stack Overflow, w3schools, and other online resources.
+            </p>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4">
+	        <i class="fas fa-tasks fa-6x"></i>
+			<h3>Organization</h3>
+			<p>I organize my project folders into subsections. nathanemartinez.com follows the DRY principle.</p>
+		</div>
+	</div>
+</div>
+
+
+<!--COLLEGE COURSES-->
+<div class="container-fluid padding">
+	<div class="row text-center welcome">
+		<div class="col-12">
+			<h1 class="display-4">College Courses</h1>
+            <h5>I am a sophomore at California State University, Sacramento looking to earn a degree in Computer Science by May 2022.
+            </h5>
+		</div>
+	</div>
+	<hr class="red-line">
+</div>
+
+
+<!--COLLEGE COURSES LIST-->
+<div class="container-fluid padding">
+	<div class="row text-center welcome">
+		<div class="col-12">
+            <h6><u>CSC15: Programming Concepts and Methodology I.</u></h6>
+            <p>Introduction to Java and object oriented programming.</p>
+            <h6><u>CSC20: Programming Concepts and Methodology II.</u></h6>
+            <p>Testing and documenting code in Java. Introduction to algorithms.</p>
+            <h6><u>CSC35: Introduction to Computer Architecture.</u></h6>
+            <p>Introduction to assembly level machine architecture.</p>
+        </div>
+	</div>
+</div>
+
+
+<!--CAPSTONE PROJECTS-->
+{% include 'components/capstone_projects.html' %}
+
+
+{% endblock %}

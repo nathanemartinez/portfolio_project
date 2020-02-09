@@ -1,0 +1,147 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM STYLESHEET-->
+{% block stylesheet %}
+    <link rel="stylesheet" href="{% static 'broken_link_checker/broken_link_checker.css' %}">
+{% endblock %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Broken Link Checker</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-row justify-content-center">
+            <div class="col-6">
+<!--                {{ form.site_name.errors }}-->
+                <label>Enter site URL</label>
+                {{ form.site_name }}
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!--DISPLAYING THE RESULTS-->
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+            <!--Will display "hello..." if it's a 'GET' request-->
+            <!--Otherwise will display "not able to access..." if the site was not accessible-->
+            {% if access %}
+                <h1>Welcome to my broken link checker.</h1>
+                <h5>Because this application checks every single link on a website, it could take a while. (up to 8min depending on the number of links)</h5>
+            {% endif %}
+
+            <!--Tell the user their site might not allow bots-->
+<!--            {% if not access %}-->
+<!--                <h1>If you are seeing a lot of 503s, your site may be blocking our bot.</h1>-->
+<!--            {% endif %}-->
+
+            <!--Checking if there are any broken Links-->
+            {% if not links_404 and not other_links and not access %}
+                <h3>No broken links!</h3>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Display 404 link accordion-->
+            {% if links_404 %}
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h5 class="mb-0">
+                    <button class="btn btn-primary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      404 LINKS
+                    </button>
+                  </h5>
+                </div>
+
+                <!--"collapse show" = show-->
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                          <tr>
+                              <th>Code</th>
+                              <th>Link Text</th>
+                              <th>Link</th>
+                          </tr>
+                          {% for key, value in links_404.items %}
+                          <tr>
+                              <td>{{ value.1 }}</td>
+                              <td>{{ value.0 }}</td>
+                              <td>{{ key }}</td>
+                          </tr>
+                          {% endfor %}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
+            <!--Display other link accordion-->
+            {% if other_links %}
+            <div id="accordion">
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                      OTHER BROKEN LINKS
+                    </button>
+                  </h5>
+                </div>
+
+                <!--"collapse show" = show-->
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table">
+                          <tr>
+                              <th>Code</th>
+                              <th>Link Text</th>
+                              <th>Link</th>
+                          </tr>
+                          {% for key, value in other_links.items %}
+                          <tr>
+                              <td>{{ value.1 }}</td>
+                              <td>{{ value.0 }}</td>
+                              <td>{{ key }}</td>
+                          </tr>
+                          {% endfor %}
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+

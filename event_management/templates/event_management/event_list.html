@@ -1,0 +1,47 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Your Events</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Are there any events?-->
+            {% if not events %}
+                <h1>You have not created any events.</h1>
+                <br>
+            {% endif %}
+
+            <!--Text-->
+            {% if events %}
+                <h1>These are all of your events</h1>
+                <br>
+            {% endif %}
+
+            <!--Create an event-->
+            <a class="btn btn-primary" href="{% url 'event_management:event_management-create' user.username %}">Create an event</a>
+            <br>
+            <br>
+
+            <!--Event list-->
+            {% for event in events %}
+                <h5><a href="{% url 'event_management:event_management-detail' user.username event.id %}">{{ event.name }}</a></h5>
+                <br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

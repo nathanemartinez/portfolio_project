@@ -1,0 +1,62 @@
+<!--LOADING THE STYLESHEET-->
+{% load static %}
+<link rel="stylesheet" href="{% static 'components_stylesheets/capstone_projects.css' %}">
+
+
+<!--CAPSTONE PROJECTS-->
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col 12">
+            <h1 class="display-4">My Capstone Projects</h1>
+        </div>
+    </div>
+    <hr class="red-line">
+</div>
+
+
+<!-- CAPSTONE PROJECTS CARDS-->
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <!--top = image at the top, middle = image in middle, bottom... etc-->
+                <img class="card-img-top" src="{% static 'images/project_pictures/broken_link.png' %}" width="300" height="210" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Broken Link Checker</strong></h4>
+                    <p class="card-text">Finds all the broken links on a page.</p>
+                    <br>
+                    <a href="{% url 'broken_link_checker:broken-link-checker' %}" class="btn btn-primary">See Project</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <!--top = image at the top, middle = image in middle, bottom... etc-->
+                <img class="card-img-top" src="{% static 'images/project_pictures/event.png' %}" width="300" height="210" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Event Manager</strong></h4>
+                    <p class="card-text">Send event invites, track who is going.</p>
+                    <br>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'event_management:event_management-events' user.username %}" class="btn btn-primary">See Project</a>
+                    {% else %}
+                        <a href="{% url 'users:users-login' %}" class="btn btn-primary">Login/Register To View</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="card">
+                <!--top = image at the top, middle = image in middle, bottom... etc-->
+                <img class="card-img-top" src="{% static 'images/project_pictures/quizlet.png' %}" width="300" height="210" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title"><strong>Quizlet Study Tool</strong></h4>
+                    <p class="card-text">Finds the answer to a question using Quizlet.</p>
+                    <a href="{% url 'quizlet_study_tool:quizlet-answer' %}" class="btn btn-primary">See Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

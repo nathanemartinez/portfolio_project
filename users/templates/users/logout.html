@@ -1,0 +1,29 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS CRISPY FORM TAGS-->
+{% load crispy_forms_tags %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Logout</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+                <h2>You have been logged out.</h2>
+                <h6><a href="{% url 'users:users-login' %}">Login again</a></h6>
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

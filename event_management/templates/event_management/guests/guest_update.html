@@ -1,0 +1,35 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS CRISPY FORM TAGS-->
+{% load crispy_forms_tags %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Update Guest</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+            <h1>Update a guest</h1>
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Guest</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

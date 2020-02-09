@@ -1,0 +1,55 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS STATIC FILES-->
+{% load static %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Your Event</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Event details-->
+            <h1>Event: {{ event }}</h1>
+            <h4>Event Date: {{ event.date_published }}</h4>
+            <h6>Date posted: {{ event.date_posted }}</h6>
+            <p>Event description: {{ event.description }}</p>
+            <br>
+
+            <!--Delete, update event-->
+            <div>
+                <a class="btn btn-outline-success" href="{% url 'event_management:event_management-update' user.username event.id %}">Update event</a>
+            </div>
+
+            <br>
+
+            <div>
+                <a class="btn btn-outline-danger" href="{% url 'event_management:event_management-delete' user.username event.id %}">Delete event</a>
+            </div>
+
+            <br>
+
+            <!--Guests-->
+            <div>
+                <h5>"{{ event }}" guests</h5>
+                <a class="btn btn-primary" href="{% url 'event_management:guests' user.username event.id %}">Guests</a>
+            </div>
+            <br>
+
+            <!--Events-->
+            <h5>All of your events</h5>
+            <a class="btn btn-primary" href="{% url 'event_management:event_management-events' user.username %}">All Events</a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

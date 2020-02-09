@@ -1,0 +1,43 @@
+<!--EXTENDS FROM BASE-->
+{% extends "base.html" %}
+
+<!--Loads crispy form tags-->
+{% load crispy_forms_tags %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Create a Guest</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <!--Label-->
+            <h1>Create a guest</h1>
+            <hr class="red-line">
+
+            <!--The form-->
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <!--Submit-->
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Create</button>
+                </div>
+            </form>
+
+            <!--Back to all guests-->
+            <div>
+                <a class="btn btn-outline-primary" href="{% url 'event_management:event_management-events' user.username %}">Back to Events</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+<!--EXTENDS FROM BASE-->
+{% extends 'base.html' %}
+<!--LOADS CRISPY FORM TAGS-->
+{% load crispy_forms_tags %}
+
+
+<!--CUSTOM TITLE-->
+{% block title %}
+    <title>Login</title>
+{% endblock %}
+
+
+<!--CONTENT-->
+{% block content %}
+
+<div class="container-fluid padding">
+    <div class="row text-center welcome">
+        <div class="col-12">
+
+            <h1>Login</h1>
+            <hr class="red-line">
+
+            <!--Form-->
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <!--Submit button-->
+                <div class="form-group">
+                    <button class="btn btn-info" type="submit">Login</button>
+                </div>
+                <!--Password reset-->
+                <div class="form-group">
+                    <small class="text-muted"><a href="{% url 'password_reset' %}">Forgot Password?</a></small>
+                </div>
+            </form>
+
+            <!--Register-->
+            <div>
+                <small class="text-muted mt-2">
+                    Need an account? <a href="{% url 'users:users-register' %}">Sign Up</a>
+                </small>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
