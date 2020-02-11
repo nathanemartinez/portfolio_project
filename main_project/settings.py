@@ -135,7 +135,7 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 
 # LOGIN
 LOGIN_REDIRECT_URL = 'index'

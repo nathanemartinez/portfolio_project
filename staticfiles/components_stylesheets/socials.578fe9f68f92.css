@@ -1,0 +1,22 @@
+/*
+---------------------------------
+SOCIALS
+---------------------------------
+*/
+.social a {
+    font-size: 1.5em;
+    color: black;
+    margin: 3em;
+}
+
+.social a:hover {
+    color: #615eff;
+}
+
+.red-line hr {
+    width: 80%;
+    border-top: 3px solid #ff0000;
+    margin-top: 2em;
+}
+
+

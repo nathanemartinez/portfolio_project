@@ -1,0 +1,20 @@
+/*
+---------------------------------
+ABOUT PAGE
+---------------------------------
+*/
+
+/* PERSONAL SKILLS */
+.accordion {
+    color: blue;
+}
+
+.accordion:hover  {
+    color: #131ef0;
+}
+
+hr.red-line {
+    width: 80%;
+    border-top: 3px solid #ff0000;
+    margin-top: 2em;
+}
