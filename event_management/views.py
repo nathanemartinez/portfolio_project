@@ -27,7 +27,7 @@ class EventListView(LoginRequiredMixin, ListView):
 		return EventModel.objects.filter(author=self.request.user)
 
 
-class EventDetailView(LoginRequiredMixin, DetailView):
+class EventDetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
 	model = EventModel
 	template_name = 'event_management/event_detail.html'
 	context_object_name = 'event'
@@ -40,6 +40,11 @@ class EventDetailView(LoginRequiredMixin, DetailView):
 		# Gets all guest models and names the context 'guestmodel'
 		context['guestmodel'] = GuestModel.objects.filter(event=pk)
 		return context
+
+	def test_func(self):
+		event = EventModel.objects.get(pk=self.kwargs['pk'])
+		# Is the current user equal to the author (user that made it)?
+		return self.request.user == event.author
 
 
 # **ADD 'LoginRequiredMixin' TO THE FAR LEFT**

@@ -1,0 +1,22 @@
+/*
+---------------------------------
+ABOUT PAGE
+---------------------------------
+*/
+
+/* PERSONAL SKILLS */
+.fa-calendar-check, .fa-satellite-dish, .fa-tasks  {
+    font-size: 8em;
+    margin: .3em;
+    color: black;
+}
+
+.fa-calendar-check:hover, .fa-satellite-dish:hover, .fa-tasks:hover  {
+    color: #131ef0;
+}
+
+hr.red-line {
+    width: 80%;
+    border-top: 3px solid #ff0000;
+    margin-top: 2em;
+}
