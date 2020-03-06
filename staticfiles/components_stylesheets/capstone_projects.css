@@ -1,0 +1,21 @@
+/*
+---------------------------------
+SKILLS
+---------------------------------
+*/
+
+.card {
+    margin-bottom: 1.5em;
+    border: 1.5px solid #2f00ff;
+}
+
+.card:hover{
+    border: 1.5px solid red;
+
+}
+
+hr.red-line {
+    width: 80%;
+    border-top: 3px solid #ff0000;
+    margin-top: 2em;
+}

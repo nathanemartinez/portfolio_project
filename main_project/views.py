@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
-from django.urls import reverse
 from django.conf import settings
-from django.core.mail import send_mail, send_mass_mail
+from django.core.mail import send_mail
+
 
 # *** HOME PAGE ***
 def index(request):
