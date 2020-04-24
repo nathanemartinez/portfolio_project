@@ -14,6 +14,7 @@ CHOICES = (
 
 
 class Checker(models.Model):
+	# Site name
 	name = models.CharField(max_length=50, blank=True, null=True)
 	site = models.URLField(max_length=200, blank=False, null=False)
 	scan = models.CharField(max_length=6, blank=False, null=False, choices=CHOICES)
