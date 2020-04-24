@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from uuid import uuid4
 
+# Choices
 CHOICES = (
 	('Hourly', 'HOURLY'),
 	('Daily', 'DAILY'),
