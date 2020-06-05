@@ -5,7 +5,7 @@ botocore==1.14.13
 bs4==0.0.1
 certifi==2019.11.28
 chardet==3.0.4
-Django==3.0.2
+Django==3.0.7
 django-crispy-forms==1.8.1
 django-heroku==0.3.1
 django-storages==1.9.1
